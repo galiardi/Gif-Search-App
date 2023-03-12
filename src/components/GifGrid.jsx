@@ -7,6 +7,9 @@ export const GifGrid = ({ category }) => {
   return (
     <>
       <h3>{category}</h3>
+      {
+        isLoading && <p>loading...</p>
+      }
       <div className="card-grid">
         {gifs.map((gif) => (
           <GifItem key={gif.id} {...gif} />

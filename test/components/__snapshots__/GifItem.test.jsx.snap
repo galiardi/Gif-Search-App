@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing GifItem debe hacer match con el snapshot 1`] = `
+<div>
+  <div
+    class="card"
+  >
+    <img
+      alt="dirt collapse GIF"
+      src="https://media0.giphy.com/media/HlPP3bY8FRsWs/giphy.gif?cid=c04ecd26nljvmzpk5gxgmbxtkpapxjnhzy7192z7vzwiiasv&rid=giphy.gif&ct=g"
+    />
+    <p>
+      dirt collapse GIF
+    </p>
+  </div>
+</div>
+`;
