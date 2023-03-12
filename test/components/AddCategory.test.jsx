@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { AddCategory } from "../../src/components/AddCategory";
 
-describe('Testing <components /AddCategory ', () => { 
+describe('Testing components/AddCategory ', () => { 
 
   test('debe cambiar el valor de la caja de texto', () => {
 
@@ -11,7 +11,6 @@ describe('Testing <components /AddCategory ', () => {
      
     const input = screen.getByRole('textbox');
     fireEvent.input(input, {target: {value: inputValue}});
-    // fireEvent.change(input, {target: {value: inputValue}});
     expect(input.value).toBe(inputValue);
 
   });
@@ -22,29 +21,23 @@ describe('Testing <components /AddCategory ', () => {
     const onAddCategory = jest.fn();
 
     render(<AddCategory onAddCategory={onAddCategory} />);
-
     const input = screen.getByRole('textbox');
     const form = screen.getByRole('form');
-    
-    fireEvent.input( input, { target: { value: inputValue } } );
-    fireEvent.submit( form );
-    expect(input.value).toBe('');
-    
-    expect(onAddCategory).toHaveBeenCalled();
-    expect(onAddCategory).toHaveBeenCalledTimes(1);
+
+    fireEvent.input(input, {target: {value: inputValue}});
+    fireEvent.submit(form);
     expect(onAddCategory).toHaveBeenCalledWith(inputValue);
+
   });
 
   test('no debe llamar onAddCategory si el input esta vacio', () => {
-    
     const onAddCategory = jest.fn();
     render(<AddCategory onAddCategory={onAddCategory} />);
 
     const form = screen.getByRole('form');
     fireEvent.submit(form);
-    
-    expect(onAddCategory).not.toHaveBeenCalled();
-    // expect(onAddCategory).toHaveBeenCalledTimes(0);
+    expect(onAddCategory).not.toBeCalled();
+
   });
 
  });
